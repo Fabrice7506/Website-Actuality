@@ -1,0 +1,52 @@
+@extends('back_office.app')
+
+@section('title','Ajouter un Auteur')
+    
+@section('dashboard-header')
+<div class="row align-items-center">
+              <div class="col">
+                <h3 class="page-title mt-5">Modifier un Auteur</h3>
+              </div>
+            </div>
+@endsection
+
+@section('dashboard-content')
+<div class="row">
+            <div class="col-lg-12">
+              <form action="{{route('Author.update',$user)}}" method="POST">
+              @csrf
+              @method('PUT')
+                <div class="row formtype">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Nom</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        value="{{$user->name}}"
+                        name="name"
+                      />
+                    </div>
+                  </div>
+                
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        value="{{$user->email}}"
+                        name="email"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary buttonedit ml-2">
+                    Modifier
+                </button>
+              </form>
+            </div>
+          </div>
+          
+        </div>
+@endsection
